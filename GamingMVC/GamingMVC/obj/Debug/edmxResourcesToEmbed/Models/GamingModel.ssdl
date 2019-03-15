@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GamingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BoardGames">
+    <Key>
+      <PropertyRef Name="boardGameID" />
+    </Key>
+    <Property Name="boardGameID" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="250" />
+    <Property Name="forAges" Type="int" />
+    <Property Name="typeOfGame" Type="varchar" MaxLength="255" />
+    <Property Name="noOfPlayers" Type="int" />
+    <Property Name="gameID" Type="int" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="int" Nullable="false" />
+    <Property Name="companyName" Type="varchar" MaxLength="250" />
+    <Property Name="established" Type="datetime" />
+    <Property Name="classlocation" Type="varchar" MaxLength="255" />
+    <Property Name="gameID" Type="int" />
+  </EntityType>
+  <EntityType Name="Console">
+    <Key>
+      <PropertyRef Name="consoleID" />
+    </Key>
+    <Property Name="consoleID" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="consoleName" Type="varchar" MaxLength="250" />
+    <Property Name="consoleVersion" Type="varchar" MaxLength="250" />
+    <Property Name="predecessor" Type="varchar" MaxLength="255" />
+    <Property Name="successor" Type="varchar" MaxLength="255" />
+    <Property Name="price" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="info" Type="varchar" MaxLength="255" />
+    <Property Name="top3Titles" Type="varchar" MaxLength="255" />
+    <Property Name="gameID" Type="int" />
+    <Property Name="companyID" Type="int" />
+  </EntityType>
+  <EntityType Name="ConsoleGame">
+    <Key>
+      <PropertyRef Name="consoleGameID" />
+    </Key>
+    <Property Name="consoleGameID" Type="int" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="250" />
+    <Property Name="ESRB" Type="varchar" MaxLength="250" />
+    <Property Name="genre" Type="varchar" MaxLength="250" />
+    <Property Name="playType" Type="varchar" MaxLength="250" />
+    <Property Name="releaseDate" Type="datetime" />
+    <Property Name="price" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="gameID" Type="int" />
+    <Property Name="consoleID" Type="varchar" MaxLength="6" />
+  </EntityType>
+  <EntityType Name="ConsoleGameDevelopers">
+    <Key>
+      <PropertyRef Name="consoleGameDeveloperID" />
+    </Key>
+    <Property Name="consoleGameDeveloperID" Type="int" Nullable="false" />
+    <Property Name="stationaryname" Type="varchar" MaxLength="250" />
+    <Property Name="price" Type="int" />
+    <Property Name="supplier" Type="varchar" MaxLength="255" />
+    <Property Name="gameID" Type="int" />
+  </EntityType>
+  <EntityType Name="DandDProfile">
+    <Key>
+      <PropertyRef Name="dAndDProfileID" />
+    </Key>
+    <Property Name="dAndDProfileID" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="characterName" Type="varchar" MaxLength="250" />
+    <Property Name="classAndLevel" Type="varchar" MaxLength="250" />
+    <Property Name="race" Type="varchar" MaxLength="255" />
+    <Property Name="alignment" Type="varchar" MaxLength="255" />
+    <Property Name="playerName" Type="varchar" MaxLength="255" />
+    <Property Name="gameID" Type="int" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="gameID" />
+    </Key>
+    <Property Name="gameID" Type="int" Nullable="false" />
+    <Property Name="gameType" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="GamertagRegister">
+    <Key>
+      <PropertyRef Name="gamertageRegisterID" />
+    </Key>
+    <Property Name="gamertageRegisterID" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="250" />
+    <Property Name="lastName" Type="varchar" MaxLength="250" />
+    <Property Name="dob" Type="datetime" />
+    <Property Name="email" Type="varchar" MaxLength="255" />
+    <Property Name="confirmEmail" Type="varchar" MaxLength="255" />
+    <Property Name="gamertag" Type="varchar" MaxLength="255" />
+    <Property Name="companyID" Type="int" />
+  </EntityType>
+  <Association Name="FK__BoardGame__gameI__37A5467C">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="BoardGames" Type="Self.BoardGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="BoardGames">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Company__gameID__1B0907CE">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Console__company__1ED998B2">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Console" Type="Self.Console" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="Console">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Console__gameID__1DE57479">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="Console" Type="Self.Console" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="Console">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ConsoleGa__conso__31EC6D26">
+    <End Role="Console" Type="Self.Console" Multiplicity="0..1" />
+    <End Role="ConsoleGame" Type="Self.ConsoleGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Console">
+        <PropertyRef Name="consoleID" />
+      </Principal>
+      <Dependent Role="ConsoleGame">
+        <PropertyRef Name="consoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ConsoleGa__gameI__25869641">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="ConsoleGameDevelopers" Type="Self.ConsoleGameDevelopers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="ConsoleGameDevelopers">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ConsoleGa__gameI__30F848ED">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="ConsoleGame" Type="Self.ConsoleGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="ConsoleGame">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DandDProf__gameI__3B75D760">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="DandDProfile" Type="Self.DandDProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="DandDProfile">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GamertagR__compa__34C8D9D1">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="GamertagRegister" Type="Self.GamertagRegister" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="GamertagRegister">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GamingModelStoreContainer">
+    <EntitySet Name="BoardGames" EntityType="Self.BoardGames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Console" EntityType="Self.Console" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsoleGame" EntityType="Self.ConsoleGame" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ConsoleGameDevelopers" EntityType="Self.ConsoleGameDevelopers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DandDProfile" EntityType="Self.DandDProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GamertagRegister" EntityType="Self.GamertagRegister" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BoardGame__gameI__37A5467C" Association="Self.FK__BoardGame__gameI__37A5467C">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="BoardGames" EntitySet="BoardGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Company__gameID__1B0907CE" Association="Self.FK__Company__gameID__1B0907CE">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Company" EntitySet="Company" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Console__company__1ED998B2" Association="Self.FK__Console__company__1ED998B2">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="Console" EntitySet="Console" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Console__gameID__1DE57479" Association="Self.FK__Console__gameID__1DE57479">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="Console" EntitySet="Console" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ConsoleGa__conso__31EC6D26" Association="Self.FK__ConsoleGa__conso__31EC6D26">
+      <End Role="Console" EntitySet="Console" />
+      <End Role="ConsoleGame" EntitySet="ConsoleGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ConsoleGa__gameI__25869641" Association="Self.FK__ConsoleGa__gameI__25869641">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="ConsoleGameDevelopers" EntitySet="ConsoleGameDevelopers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ConsoleGa__gameI__30F848ED" Association="Self.FK__ConsoleGa__gameI__30F848ED">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="ConsoleGame" EntitySet="ConsoleGame" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DandDProf__gameI__3B75D760" Association="Self.FK__DandDProf__gameI__3B75D760">
+      <End Role="Game" EntitySet="Game" />
+      <End Role="DandDProfile" EntitySet="DandDProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GamertagR__compa__34C8D9D1" Association="Self.FK__GamertagR__compa__34C8D9D1">
+      <End Role="Company" EntitySet="Company" />
+      <End Role="GamertagRegister" EntitySet="GamertagRegister" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,66 @@
+﻿@model GamingMVC.Models.DandDProfile
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DandDProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.characterName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.characterName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.classAndLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.classAndLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.race)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.race)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.alignment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alignment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.playerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.playerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.gameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.gameType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.dAndDProfileID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

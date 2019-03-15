@@ -1,0 +1,96 @@
+﻿@model GamingMVC.Models.Console
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Console</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.consoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.consoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.consoleVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.consoleVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.predecessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.predecessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.successor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.successor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top3Titles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top3Titles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.companyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.companyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.gameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.gameType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

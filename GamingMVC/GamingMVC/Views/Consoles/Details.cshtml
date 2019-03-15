@@ -1,0 +1,90 @@
+﻿@model GamingMVC.Models.Console
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Console</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.consoleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.consoleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.consoleVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.consoleVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.predecessor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.predecessor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.successor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.successor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.info)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.info)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.top3Titles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.top3Titles)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Company.companyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Company.companyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.gameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.gameType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.consoleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

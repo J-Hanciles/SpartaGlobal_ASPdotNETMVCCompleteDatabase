@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="427d4ff7a0fd4be5855d5dfe970880f8" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="GamingModel.BoardGame" Width="1.5" PointX="4.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.Company" Width="1.5" PointX="8.125" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.Console" Width="1.5" PointX="10.125" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.ConsoleGame" Width="1.5" PointX="12" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.ConsoleGameDeveloper" Width="1.5" PointX="6.375" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.DandDProfile" Width="1.5" PointX="4.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.Game" Width="1.5" PointX="6.375" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GamingModel.GamertagRegister" Width="1.5" PointX="8.125" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="GamingModel.FK__BoardGame__gameI__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__Company__gameID__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__Console__company__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__GamertagR__compa__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__Console__gameID__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__ConsoleGa__conso__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__ConsoleGa__gameI__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__ConsoleGa__gameI__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="GamingModel.FK__DandDProf__gameI__3B75D760" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

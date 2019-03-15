@@ -1,0 +1,58 @@
+﻿@model GamingMVC.Models.BoardGame
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BoardGame</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.forAges)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.forAges)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typeOfGame)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeOfGame)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.noOfPlayers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.noOfPlayers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.gameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.gameType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.boardGameID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

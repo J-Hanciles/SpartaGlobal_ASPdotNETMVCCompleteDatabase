@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -126,11 +134,58 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BoardGamesController.cs" />
     <Compile Include="Controllers\BoardGamingController.cs" />
+    <Compile Include="Controllers\CompaniesController.cs" />
+    <Compile Include="Controllers\ConsoleGameDevelopersController.cs" />
+    <Compile Include="Controllers\ConsoleGamesController.cs" />
     <Compile Include="Controllers\ConsoleGamingController.cs" />
+    <Compile Include="Controllers\ConsolesController.cs" />
+    <Compile Include="Controllers\DandDProfilesController.cs" />
+    <Compile Include="Controllers\GamertagRegistersController.cs" />
+    <Compile Include="Controllers\GamesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BoardGame.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Console.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsoleGame.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConsoleGameDeveloper.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DandDProfile.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Game.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GamertagRegister.cs">
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GamingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GamingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GamingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GamingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GamingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GamingModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -149,8 +204,25 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\GamingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GamingModel.Context.cs</LastGenOutput>
+      <DependentUpon>GamingModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\GamingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GamingModel.edmx</DependentUpon>
+      <LastGenOutput>GamingModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\GamingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GamingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GamingModel.edmx.diagram">
+      <DependentUpon>GamingModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -198,12 +270,51 @@
     <Content Include="Views\ConsoleGaming\Stores.cshtml" />
     <Content Include="Views\BoardGaming\DandDProfile.cshtml" />
     <Content Include="Views\BoardGaming\BGames.cshtml" />
+    <Content Include="Views\Games\Create.cshtml" />
+    <Content Include="Views\Games\Delete.cshtml" />
+    <Content Include="Views\Games\Details.cshtml" />
+    <Content Include="Views\Games\Edit.cshtml" />
+    <Content Include="Views\Games\Index.cshtml" />
+    <Content Include="Views\Companies\Create.cshtml" />
+    <Content Include="Views\Companies\Delete.cshtml" />
+    <Content Include="Views\Companies\Details.cshtml" />
+    <Content Include="Views\Companies\Edit.cshtml" />
+    <Content Include="Views\Companies\Index.cshtml" />
+    <Content Include="Views\Consoles\Create.cshtml" />
+    <Content Include="Views\Consoles\Delete.cshtml" />
+    <Content Include="Views\Consoles\Details.cshtml" />
+    <Content Include="Views\Consoles\Edit.cshtml" />
+    <Content Include="Views\Consoles\Index.cshtml" />
+    <Content Include="Views\ConsoleGameDevelopers\Create.cshtml" />
+    <Content Include="Views\ConsoleGameDevelopers\Delete.cshtml" />
+    <Content Include="Views\ConsoleGameDevelopers\Details.cshtml" />
+    <Content Include="Views\ConsoleGameDevelopers\Edit.cshtml" />
+    <Content Include="Views\ConsoleGameDevelopers\Index.cshtml" />
+    <Content Include="Views\GamertagRegisters\Create.cshtml" />
+    <Content Include="Views\GamertagRegisters\Delete.cshtml" />
+    <Content Include="Views\GamertagRegisters\Details.cshtml" />
+    <Content Include="Views\GamertagRegisters\Edit.cshtml" />
+    <Content Include="Views\GamertagRegisters\Index.cshtml" />
+    <Content Include="Views\BoardGames\Create.cshtml" />
+    <Content Include="Views\BoardGames\Delete.cshtml" />
+    <Content Include="Views\BoardGames\Details.cshtml" />
+    <Content Include="Views\BoardGames\Edit.cshtml" />
+    <Content Include="Views\BoardGames\Index.cshtml" />
+    <Content Include="Views\ConsoleGames\Create.cshtml" />
+    <Content Include="Views\ConsoleGames\Delete.cshtml" />
+    <Content Include="Views\ConsoleGames\Details.cshtml" />
+    <Content Include="Views\ConsoleGames\Edit.cshtml" />
+    <Content Include="Views\ConsoleGames\Index.cshtml" />
+    <Content Include="Views\DandDProfiles\Create.cshtml" />
+    <Content Include="Views\DandDProfiles\Delete.cshtml" />
+    <Content Include="Views\DandDProfiles\Details.cshtml" />
+    <Content Include="Views\DandDProfiles\Edit.cshtml" />
+    <Content Include="Views\DandDProfiles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Content\Videos\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -217,6 +328,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GamingMVC.Models.GamertagRegister>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.confirmEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gamertag)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Company.companyName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dob)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.confirmEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gamertag)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Company.companyName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.gamertageRegisterID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.gamertageRegisterID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.gamertageRegisterID })
+        </td>
+    </tr>
+}
+
+</table>

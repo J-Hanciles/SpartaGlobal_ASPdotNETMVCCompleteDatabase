@@ -1,0 +1,50 @@
+﻿@model GamingMVC.Models.ConsoleGameDeveloper
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ConsoleGameDeveloper</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.stationaryname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stationaryname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.supplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.supplier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Game.gameType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Game.gameType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.consoleGameDeveloperID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
