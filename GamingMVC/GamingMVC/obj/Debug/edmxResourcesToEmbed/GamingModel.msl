@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GamingModelStoreContainer" CdmEntityContainer="GamingEntities2">
+    <EntitySetMapping Name="BoardGames">
+      <EntityTypeMapping TypeName="GamingModel.BoardGame">
+        <MappingFragment StoreEntitySet="BoardGames">
+          <ScalarProperty Name="boardGameID" ColumnName="boardGameID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="forAges" ColumnName="forAges" />
+          <ScalarProperty Name="typeOfGame" ColumnName="typeOfGame" />
+          <ScalarProperty Name="noOfPlayers" ColumnName="noOfPlayers" />
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Companies">
+      <EntityTypeMapping TypeName="GamingModel.Company">
+        <MappingFragment StoreEntitySet="Company">
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="established" ColumnName="established" />
+          <ScalarProperty Name="classlocation" ColumnName="classlocation" />
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consoles">
+      <EntityTypeMapping TypeName="GamingModel.Console">
+        <MappingFragment StoreEntitySet="Console">
+          <ScalarProperty Name="consoleID" ColumnName="consoleID" />
+          <ScalarProperty Name="consoleName" ColumnName="consoleName" />
+          <ScalarProperty Name="consoleVersion" ColumnName="consoleVersion" />
+          <ScalarProperty Name="predecessor" ColumnName="predecessor" />
+          <ScalarProperty Name="successor" ColumnName="successor" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="info" ColumnName="info" />
+          <ScalarProperty Name="top3Titles" ColumnName="top3Titles" />
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsoleGames">
+      <EntityTypeMapping TypeName="GamingModel.ConsoleGame">
+        <MappingFragment StoreEntitySet="ConsoleGame">
+          <ScalarProperty Name="consoleGameID" ColumnName="consoleGameID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="ESRB" ColumnName="ESRB" />
+          <ScalarProperty Name="genre" ColumnName="genre" />
+          <ScalarProperty Name="playType" ColumnName="playType" />
+          <ScalarProperty Name="releaseDate" ColumnName="releaseDate" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+          <ScalarProperty Name="consoleID" ColumnName="consoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConsoleGameDevelopers">
+      <EntityTypeMapping TypeName="GamingModel.ConsoleGameDeveloper">
+        <MappingFragment StoreEntitySet="ConsoleGameDevelopers">
+          <ScalarProperty Name="consoleGameDeveloperID" ColumnName="consoleGameDeveloperID" />
+          <ScalarProperty Name="stationaryname" ColumnName="stationaryname" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="supplier" ColumnName="supplier" />
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DandDProfiles">
+      <EntityTypeMapping TypeName="GamingModel.DandDProfile">
+        <MappingFragment StoreEntitySet="DandDProfile">
+          <ScalarProperty Name="dAndDProfileID" ColumnName="dAndDProfileID" />
+          <ScalarProperty Name="characterName" ColumnName="characterName" />
+          <ScalarProperty Name="classAndLevel" ColumnName="classAndLevel" />
+          <ScalarProperty Name="race" ColumnName="race" />
+          <ScalarProperty Name="alignment" ColumnName="alignment" />
+          <ScalarProperty Name="playerName" ColumnName="playerName" />
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Games">
+      <EntityTypeMapping TypeName="GamingModel.Game">
+        <MappingFragment StoreEntitySet="Game">
+          <ScalarProperty Name="gameID" ColumnName="gameID" />
+          <ScalarProperty Name="gameType" ColumnName="gameType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GamertagRegisters">
+      <EntityTypeMapping TypeName="GamingModel.GamertagRegister">
+        <MappingFragment StoreEntitySet="GamertagRegister">
+          <ScalarProperty Name="gamertageRegisterID" ColumnName="gamertageRegisterID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="confirmEmail" ColumnName="confirmEmail" />
+          <ScalarProperty Name="gamertag" ColumnName="gamertag" />
+          <ScalarProperty Name="companyID" ColumnName="companyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -7,21 +7,24 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GamingMVC.Models
+namespace GamingMVC
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class DandDProfile
+    public partial class ConsoleGame
     {
-        public string dAndDProfileID { get; set; }
-        public string characterName { get; set; }
-        public string classAndLevel { get; set; }
-        public string race { get; set; }
-        public string alignment { get; set; }
-        public string playerName { get; set; }
+        public int consoleGameID { get; set; }
+        public string title { get; set; }
+        public string ESRB { get; set; }
+        public string genre { get; set; }
+        public string playType { get; set; }
+        public Nullable<System.DateTime> releaseDate { get; set; }
+        public Nullable<decimal> price { get; set; }
         public Nullable<int> gameID { get; set; }
+        public string consoleID { get; set; }
     
+        public virtual Console Console { get; set; }
         public virtual Game Game { get; set; }
     }
 }

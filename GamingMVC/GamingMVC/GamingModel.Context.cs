@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GamingMVC.Models
+namespace GamingMVC
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GamingEntities : DbContext
+    public partial class GamingEntities2 : DbContext
     {
-        public GamingEntities()
-            : base("name=GamingEntities")
+        public GamingEntities2()
+            : base("name=GamingEntities2")
         {
         }
     

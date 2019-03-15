@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GamingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BoardGame">
+    <Key>
+      <PropertyRef Name="boardGameID" />
+    </Key>
+    <Property Name="boardGameID" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="forAges" Type="Int32" />
+    <Property Name="typeOfGame" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="noOfPlayers" Type="Int32" />
+    <Property Name="gameID" Type="Int32" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__BoardGame__gameI__37A5467C" FromRole="BoardGames" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="companyID" Type="Int32" Nullable="false" />
+    <Property Name="companyName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="established" Type="DateTime" Precision="3" />
+    <Property Name="classlocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gameID" Type="Int32" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__Company__gameID__1B0907CE" FromRole="Company" ToRole="Game" />
+    <NavigationProperty Name="Consoles" Relationship="Self.FK__Console__company__1ED998B2" FromRole="Company" ToRole="Console" />
+    <NavigationProperty Name="GamertagRegisters" Relationship="Self.FK__GamertagR__compa__34C8D9D1" FromRole="Company" ToRole="GamertagRegister" />
+  </EntityType>
+  <EntityType Name="Console">
+    <Key>
+      <PropertyRef Name="consoleID" />
+    </Key>
+    <Property Name="consoleID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="consoleName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="consoleVersion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="predecessor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="successor" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="info" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="top3Titles" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gameID" Type="Int32" />
+    <Property Name="companyID" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__Console__company__1ED998B2" FromRole="Console" ToRole="Company" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__Console__gameID__1DE57479" FromRole="Console" ToRole="Game" />
+    <NavigationProperty Name="ConsoleGames" Relationship="Self.FK__ConsoleGa__conso__31EC6D26" FromRole="Console" ToRole="ConsoleGame" />
+  </EntityType>
+  <EntityType Name="ConsoleGame">
+    <Key>
+      <PropertyRef Name="consoleGameID" />
+    </Key>
+    <Property Name="consoleGameID" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="ESRB" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="genre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="playType" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="releaseDate" Type="DateTime" Precision="3" />
+    <Property Name="price" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="gameID" Type="Int32" />
+    <Property Name="consoleID" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Console" Relationship="Self.FK__ConsoleGa__conso__31EC6D26" FromRole="ConsoleGame" ToRole="Console" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__ConsoleGa__gameI__30F848ED" FromRole="ConsoleGame" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="ConsoleGameDeveloper">
+    <Key>
+      <PropertyRef Name="consoleGameDeveloperID" />
+    </Key>
+    <Property Name="consoleGameDeveloperID" Type="Int32" Nullable="false" />
+    <Property Name="stationaryname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="supplier" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gameID" Type="Int32" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__ConsoleGa__gameI__25869641" FromRole="ConsoleGameDevelopers" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="DandDProfile">
+    <Key>
+      <PropertyRef Name="dAndDProfileID" />
+    </Key>
+    <Property Name="dAndDProfileID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="characterName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="classAndLevel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="race" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="alignment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="playerName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gameID" Type="Int32" />
+    <NavigationProperty Name="Game" Relationship="Self.FK__DandDProf__gameI__3B75D760" FromRole="DandDProfile" ToRole="Game" />
+  </EntityType>
+  <EntityType Name="Game">
+    <Key>
+      <PropertyRef Name="gameID" />
+    </Key>
+    <Property Name="gameID" Type="Int32" Nullable="false" />
+    <Property Name="gameType" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BoardGames" Relationship="Self.FK__BoardGame__gameI__37A5467C" FromRole="Game" ToRole="BoardGames" />
+    <NavigationProperty Name="Companies" Relationship="Self.FK__Company__gameID__1B0907CE" FromRole="Game" ToRole="Company" />
+    <NavigationProperty Name="Consoles" Relationship="Self.FK__Console__gameID__1DE57479" FromRole="Game" ToRole="Console" />
+    <NavigationProperty Name="ConsoleGames" Relationship="Self.FK__ConsoleGa__gameI__30F848ED" FromRole="Game" ToRole="ConsoleGame" />
+    <NavigationProperty Name="ConsoleGameDevelopers" Relationship="Self.FK__ConsoleGa__gameI__25869641" FromRole="Game" ToRole="ConsoleGameDevelopers" />
+    <NavigationProperty Name="DandDProfiles" Relationship="Self.FK__DandDProf__gameI__3B75D760" FromRole="Game" ToRole="DandDProfile" />
+  </EntityType>
+  <EntityType Name="GamertagRegister">
+    <Key>
+      <PropertyRef Name="gamertageRegisterID" />
+    </Key>
+    <Property Name="gamertageRegisterID" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="lastName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="DateTime" Precision="3" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="confirmEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="gamertag" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="companyID" Type="Int32" />
+    <NavigationProperty Name="Company" Relationship="Self.FK__GamertagR__compa__34C8D9D1" FromRole="GamertagRegister" ToRole="Company" />
+  </EntityType>
+  <Association Name="FK__BoardGame__gameI__37A5467C">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="BoardGames" Type="Self.BoardGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="BoardGames">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Company__gameID__1B0907CE">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="Company" Type="Self.Company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="Company">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Console__company__1ED998B2">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="Console" Type="Self.Console" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="Console">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GamertagR__compa__34C8D9D1">
+    <End Role="Company" Type="Self.Company" Multiplicity="0..1" />
+    <End Role="GamertagRegister" Type="Self.GamertagRegister" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="GamertagRegister">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Console__gameID__1DE57479">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="Console" Type="Self.Console" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="Console">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ConsoleGa__conso__31EC6D26">
+    <End Role="Console" Type="Self.Console" Multiplicity="0..1" />
+    <End Role="ConsoleGame" Type="Self.ConsoleGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Console">
+        <PropertyRef Name="consoleID" />
+      </Principal>
+      <Dependent Role="ConsoleGame">
+        <PropertyRef Name="consoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ConsoleGa__gameI__30F848ED">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="ConsoleGame" Type="Self.ConsoleGame" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="ConsoleGame">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ConsoleGa__gameI__25869641">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="ConsoleGameDevelopers" Type="Self.ConsoleGameDeveloper" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="ConsoleGameDevelopers">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DandDProf__gameI__3B75D760">
+    <End Role="Game" Type="Self.Game" Multiplicity="0..1" />
+    <End Role="DandDProfile" Type="Self.DandDProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game">
+        <PropertyRef Name="gameID" />
+      </Principal>
+      <Dependent Role="DandDProfile">
+        <PropertyRef Name="gameID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GamingEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BoardGames" EntityType="Self.BoardGame" />
+    <EntitySet Name="Companies" EntityType="Self.Company" />
+    <EntitySet Name="Consoles" EntityType="Self.Console" />
+    <EntitySet Name="ConsoleGames" EntityType="Self.ConsoleGame" />
+    <EntitySet Name="ConsoleGameDevelopers" EntityType="Self.ConsoleGameDeveloper" />
+    <EntitySet Name="DandDProfiles" EntityType="Self.DandDProfile" />
+    <EntitySet Name="Games" EntityType="Self.Game" />
+    <EntitySet Name="GamertagRegisters" EntityType="Self.GamertagRegister" />
+    <AssociationSet Name="FK__BoardGame__gameI__37A5467C" Association="Self.FK__BoardGame__gameI__37A5467C">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="BoardGames" EntitySet="BoardGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Company__gameID__1B0907CE" Association="Self.FK__Company__gameID__1B0907CE">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="Company" EntitySet="Companies" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Console__company__1ED998B2" Association="Self.FK__Console__company__1ED998B2">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="Console" EntitySet="Consoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GamertagR__compa__34C8D9D1" Association="Self.FK__GamertagR__compa__34C8D9D1">
+      <End Role="Company" EntitySet="Companies" />
+      <End Role="GamertagRegister" EntitySet="GamertagRegisters" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Console__gameID__1DE57479" Association="Self.FK__Console__gameID__1DE57479">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="Console" EntitySet="Consoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ConsoleGa__conso__31EC6D26" Association="Self.FK__ConsoleGa__conso__31EC6D26">
+      <End Role="Console" EntitySet="Consoles" />
+      <End Role="ConsoleGame" EntitySet="ConsoleGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ConsoleGa__gameI__30F848ED" Association="Self.FK__ConsoleGa__gameI__30F848ED">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="ConsoleGame" EntitySet="ConsoleGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ConsoleGa__gameI__25869641" Association="Self.FK__ConsoleGa__gameI__25869641">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="ConsoleGameDevelopers" EntitySet="ConsoleGameDevelopers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DandDProf__gameI__3B75D760" Association="Self.FK__DandDProf__gameI__3B75D760">
+      <End Role="Game" EntitySet="Games" />
+      <End Role="DandDProfile" EntitySet="DandDProfiles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

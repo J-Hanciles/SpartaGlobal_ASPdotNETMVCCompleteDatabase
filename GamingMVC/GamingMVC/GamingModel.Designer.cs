@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDatabase\GamingMVC\GamingMVC\Models\GamingModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDatabase\GamingMVC\GamingMVC\GamingModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

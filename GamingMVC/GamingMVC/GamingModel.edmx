@@ -474,7 +474,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GamingEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GamingEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BoardGames" EntityType="Self.BoardGame" />
           <EntitySet Name="Companies" EntityType="Self.Company" />
           <EntitySet Name="Consoles" EntityType="Self.Console" />
@@ -525,7 +525,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GamingModelStoreContainer" CdmEntityContainer="GamingEntities">
+        <EntityContainerMapping StorageEntityContainer="GamingModelStoreContainer" CdmEntityContainer="GamingEntities2">
           <EntitySetMapping Name="BoardGames">
             <EntityTypeMapping TypeName="GamingModel.BoardGame">
               <MappingFragment StoreEntitySet="BoardGames">

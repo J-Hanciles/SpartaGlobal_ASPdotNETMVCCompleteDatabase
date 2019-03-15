@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using GamingMVC.Models;
+using GamingMVC;
 
 namespace GamingMVC.Controllers
 {
     public class BoardGamesController : Controller
     {
-        private GamingEntities db = new GamingEntities();
+        private GamingEntities2 db = new GamingEntities2();
 
         // GET: BoardGames
         public ActionResult Index()

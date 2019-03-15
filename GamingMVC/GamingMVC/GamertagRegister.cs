@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GamingMVC.Models
+namespace GamingMVC
 {
     using System;
     using System.Collections.Generic;
