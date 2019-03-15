@@ -241,3 +241,4 @@ C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDat
 C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDatabase\GamingMVC\GamingMVC\obj\Debug\GamingMVC.csproj.CopyComplete
 C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDatabase\GamingMVC\GamingMVC\obj\Debug\GamingMVC.dll
 C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDatabase\GamingMVC\GamingMVC\obj\Debug\GamingMVC.pdb
+C:\Users\tech-w98a\Engineering26\Week9\Day4\SpartaGlobal_ASPdotNETMVCCompleteDatabase\GamingMVC\GamingMVC\obj\Debug\GamingMVC.csprojAssemblyReference.cache

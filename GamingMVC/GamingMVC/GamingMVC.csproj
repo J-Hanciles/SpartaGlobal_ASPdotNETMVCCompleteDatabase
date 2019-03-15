@@ -310,6 +310,7 @@
     <Content Include="Views\GamertagRegisters\Details.cshtml" />
     <Content Include="Views\GamertagRegisters\Edit.cshtml" />
     <Content Include="Views\GamertagRegisters\Index.cshtml" />
+    <Content Include="Views\ConsoleGames\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

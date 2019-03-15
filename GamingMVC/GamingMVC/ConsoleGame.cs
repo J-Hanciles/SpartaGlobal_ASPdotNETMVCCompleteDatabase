@@ -14,6 +14,7 @@ namespace GamingMVC
     
     public partial class ConsoleGame
     {
+
         public int consoleGameID { get; set; }
         public string title { get; set; }
         public string ESRB { get; set; }

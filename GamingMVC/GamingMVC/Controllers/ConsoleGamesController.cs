@@ -20,20 +20,30 @@ namespace GamingMVC.Controllers
             var consoleGames = db.ConsoleGames.Include(c => c.Console).Include(c => c.Game);
             return View(consoleGames.ToList());
         }
+        // GET: ConsoleGames
+        [HttpGet]
+        public ActionResult Search()
+        {
+            
+            return View("Search");
+        }
+
 
         // GET: ConsoleGames/Details/5
-        public ActionResult Details(int? id)
+        [HttpPost]
+        public ActionResult Search(int? consoleGameID)
         {
-            if (id == null)
+            if (consoleGameID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ConsoleGame consoleGame = db.ConsoleGames.Find(id);
+            ConsoleGame consoleGame = db.ConsoleGames.Find(consoleGameID);
             if (consoleGame == null)
             {
                 return HttpNotFound();
             }
-            return View(consoleGame);
+            return View("Details", consoleGame);
+
         }
 
         // GET: ConsoleGames/Create
